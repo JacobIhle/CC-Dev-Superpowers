@@ -1,6 +1,6 @@
 ---
 name: code-reviewer
-description: Reviews code changes for correctness, stability, and security. Use proactively after non-trivial changes, or when the user asks for a review.
+description: Reviews code changes for correctness, stability, and security in a clean context. Dispatch automatically after completing a coherent unit of code (feature, bug fix, refactor) — the reviewer has no implementation history and provides a fresh perspective. Also use when the user asks for a review.
 tools: Read, Grep, Glob, Bash
 ---
 

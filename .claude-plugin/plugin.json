@@ -1,0 +1,9 @@
+{
+  "name": "cc-dev-superpowers",
+  "version": "0.1.0",
+  "description": "Opinionated .NET development methodology for Claude Code: TDD-first, clean-context code review, and documentation that stays in sync.",
+  "author": {
+    "name": "JacobIhle"
+  },
+  "repository": "https://github.com/JacobIhle/CC-Dev-Superpowers"
+}
