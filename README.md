@@ -25,6 +25,10 @@ Once installed, the plugin's agents, skills, and permission rules become availab
 
 **Permissions** (`settings.json`) — auto-allows the .NET dev loop (`dotnet build/restore/clean/test/format/...`), `git fetch/pull/push`, ripgrep. Pushes to `main` or `dev`, force-pushes, and `--all`/`--mirror` pushes still prompt.
 
+## After install
+
+Add `tmp/` to your project's `.gitignore`. The plugin's CLAUDE.md instructs agents to use `./tmp/` for clone-and-explore work (external repos, reference material) so reads stay inside the project boundary and don't trigger permission prompts.
+
 ## Known gaps
 
 - **`git push` to a tracking branch** isn't visible in the command string, so bare `git push` and `git push origin` slip past the `ask` rules even when the tracking branch is `main` or `dev`. Add a `PreToolUse` hook if you want airtight protection.

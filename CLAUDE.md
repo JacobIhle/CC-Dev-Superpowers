@@ -16,6 +16,10 @@ For any non-trivial production code change, follow the `feature-development-work
 
 Skip the pipeline for throwaway scripts, doc-only changes, and trivial mechanical edits. Honor explicit user opt-out.
 
+## Temporary workspaces
+
+When you need to clone an external repo, download reference material, or create scratch files for analysis, put them in `./tmp/` at the project root — never in `/tmp/` or other system directories. Reads inside the project are auto-allowed; reads outside aren't, so keeping scratch work in-repo avoids permission churn and makes cleanup straightforward. The consuming project should have `tmp/` in its `.gitignore`.
+
 ## Code style
 
 Style rules are derived from canonical example files and codified in the `coding-style` skill (Tier 2 of the methodology — not yet populated). Until then, follow the conventions of the surrounding code in the consuming project.

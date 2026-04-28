@@ -1,0 +1,7 @@
+# macOS Finder metadata
+.DS_Store
+
+# Agent scratch space — see CLAUDE.md "Temporary workspaces" rule.
+# External repo clones, downloaded reference material, and analysis scratch
+# files belong here so reads stay inside the project boundary.
+tmp/
