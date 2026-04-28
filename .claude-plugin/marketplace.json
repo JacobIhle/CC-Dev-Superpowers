@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "cc-dev-superpowers",
-      "source": "."
+      "source": "./"
     }
   ]
 }
