@@ -1,0 +1,12 @@
+{
+  "name": "cc-dev-superpowers",
+  "owner": {
+    "name": "JacobIhle"
+  },
+  "plugins": [
+    {
+      "name": "cc-dev-superpowers",
+      "source": "."
+    }
+  ]
+}
