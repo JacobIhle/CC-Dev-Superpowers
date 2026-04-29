@@ -22,4 +22,20 @@ When you need to clone an external repo, download reference material, or create 
 
 ## Code style
 
-Style rules are derived from canonical example files and codified in the `coding-style` skill (Tier 2 of the methodology — not yet populated). Until then, follow the conventions of the surrounding code in the consuming project.
+For C# / .NET code, the canonical invariants:
+
+- **Project**: nested project dir; `global.json` pins the SDK; csproj has `<Nullable>enable</Nullable>` and `<ImplicitUsings>enable</ImplicitUsings>`.
+- **Layout**: feature folders by role (`Endpoints/`, `Models/`, `Services/`, `Extensions/`). One primary type per file. File-scoped namespaces. Namespace mirrors folder hierarchy. Filename matches class name exactly.
+- **Endpoints**: Minimal API. `public static class` with `Map<Name>Endpoint` extension; handlers return `Results.*`; chain `.WithName().WithOpenApi().RequireAuthorization(...)`.
+- **Services**: constructor-injected instance classes by default; static classes only for pure orchestration with no per-call state. Concrete-type DI registration — no interface abstractions for internal services.
+- **HTTP**: always `IHttpClientFactory.CreateClient()`. Never `new HttpClient()`.
+- **DTOs**: `public class`, mutable `{ get; set; }`, `Dto` suffix (PascalCase). `required` on non-nullable properties; `?` on optionals.
+- **Configuration**: `GetRequiredValue` extension for fail-fast on missing keys; no silent null defaults.
+- **Async**: all I/O async; method names end with `Async`. No `ConfigureAwait`.
+- **Errors**: services log + rethrow; endpoints log + `Results.Problem` with a generic external message.
+- **Logging**: structured templates only with PascalCase placeholders. Never `$"..."` interpolation in `LogXxx(...)` calls.
+- **Naming**: PascalCase types / methods / records / constants. `_camelCase` private fields. camelCase locals / parameters. `I`-prefix interfaces. `Async` suffix on async methods.
+- **Tests**: xUnit + FluentAssertions, AAA layout, name `Method_Should_X_When_Y`, one behavior per test.
+- **XML docs**: opt-in; if you open a tag, fill it in.
+
+The `coding-style` skill has the *why*, the edge cases, and the contrasts.
